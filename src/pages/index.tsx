@@ -11,14 +11,14 @@ const MainContent = styled.main`
   align-items: flex-start;
   justify-content: center;
   height: 100vh;
-  padding-left: 2rem;
+  padding: 0;
   text-align: left;
   position: relative;
 `;
 
 const Title = styled.h1`
   font-size: 7.8vw; /* Adjust font size based on viewport width */
-  margin-bottom: 0.5rem;
+  margin: 0;
   line-height: 0.79;
   position: absolute;
   right: 15vw;
@@ -37,6 +37,12 @@ const Title = styled.h1`
   & > span:nth-child(3) {
     text-align: right;
   }
+
+  @media (max-width: 3100px) {
+  font-size: 7.8vw;
+    right: 15vw;
+    top: 24.1vh;
+  }
 `;
 
 const Subtitle = styled.h2`
@@ -47,9 +53,16 @@ const Subtitle = styled.h2`
   position: absolute;
   right: 38vw;
   top: 35vw;
+  margin: 0;
 
   & > span {
     display: block;
+  }
+
+  @media (max-width: 3100px) {
+    font-size: 1.8vw;
+    right: 38vw;
+    top: 52.9vh;
   }
 `;
 
@@ -57,13 +70,13 @@ const DecorativeElement = styled.h3`
   font-size: 7vw; /* Adjust font size based on viewport width */
   font-weight: 700;
   line-height: 0.79;
-  color: #000;
-  opacity: 0.05;
+  margin: 0;
+  color: rgba(0,0,0,0.05);
   position: absolute;
   left: 2vw; /* Adjust positioning based on viewport width */
-  top: 2vh; /* Adjust positioning based on viewport height */
+  top: 12vw; /* Align the top of the decorative element with the top of the title */
   transform: rotate(90deg);
-  width: 10vw; /* Adjust width based on viewport width */
+  /* width: 10vw; */
   height: 35vh; /* Adjust height based on viewport height */
   
   & > span {
@@ -73,8 +86,43 @@ const DecorativeElement = styled.h3`
   }
 
   & > span:nth-child(2) {
-    opacity: 1;
+    color: black;
   }
+
+  @media (max-width: 3100px) {
+    font-size: 15.6vw;
+    left: 2vw;
+    top: -8vh;
+    letter-spacing: -2.5vw;
+
+    & > span:nth-child(2) {
+      left: 20.9vh;
+    }
+  }
+`;
+
+const DebugBox = styled.div`
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  right: 50%;
+  background-color: #eeff0078; 
+`;
+
+const DebugBoxTwo = styled.div`
+  position: absolute;
+  height: 200px;
+  top: 50%;
+  background-color: #6f00ff4b; 
+`;
+
+const DebugBoxThree = styled.div`
+  position: absolute;
+  height: 53.4vh;
+  width: 200px;
+  top: 0;
+  left: 10vw;
+  background-color: #00ffdd4a;
 `;
 
 const IndexPage: React.FC<PageProps> = () => {
@@ -95,6 +143,15 @@ const IndexPage: React.FC<PageProps> = () => {
           <span>VALLE</span>
           <span>L</span>
         </DecorativeElement>
+        <DebugBox style={{top: 0, height: '495px', left: 0, width: '70vw'}} />
+        <DebugBox style={{top: '42vh', height: '237px'}} />
+        <DebugBox style={{top: '57.8vh', height: '848px'}} />
+        <DebugBoxTwo style={{left: '0', width: '6.4vw', top: '20vh'}} />
+        <DebugBoxTwo style={{left: '6.4vw', width: '10.4vw', top: '25vh'}} />
+        <DebugBoxTwo style={{left: 'calc(6.4vw + 10.4vw)', width: '28vw', top: '31vh'}} />
+        <DebugBoxTwo style={{left: 'calc(6.4vw + 10.4vw + 28vw)', width: '39.7vw', top: '36vh'}} />
+        <DebugBoxTwo style={{left: 'calc(6.4vw + 10.4vw + 28vw + 39.7vw)', width: '15.6vw', top: '41vh'}} />
+        <DebugBoxThree />
       </MainContent>
     </ThemeProvider>
   );
