@@ -17,12 +17,12 @@ const MainContent = styled.main`
 `;
 
 const Title = styled.h1`
-  font-size: 7.8vw; /* Adjust font size based on viewport width */
+  font-size: 7.8vw;
   margin: 0;
   line-height: 0.79;
   position: absolute;
   right: 15vw;
-  top: 12vw;
+  top: 24.1vh;
 
   & > span {
     display: block;
@@ -39,21 +39,30 @@ const Title = styled.h1`
   }
 
   @media (max-width: 3100px) {
-  font-size: 7.8vw;
+    font-size: 7.8vw;
     right: 15vw;
     top: 24.1vh;
+  }
+
+  @media (min-aspect-ratio: 308/170) {
+    top: 20vh;
+  }
+
+  @media (min-aspect-ratio: 308/120) {
+    top: 16vh;
   }
 `;
 
 const Subtitle = styled.h2`
-  font-size: 1.8vw; /* Adjust font size based on viewport width */
-  font-weight: 500;
+  font-size: 1.8vw;
+  font-weight: 300;
   line-height: 1;
   color: #555;
   position: absolute;
-  right: 38vw;
-  top: 35vw;
+  right: 40vw;
+  top: 52.9vh;
   margin: 0;
+  letter-spacing: -0.06vw;
 
   & > span {
     display: block;
@@ -61,43 +70,157 @@ const Subtitle = styled.h2`
 
   @media (max-width: 3100px) {
     font-size: 1.8vw;
-    right: 38vw;
+    right: 40vw;
     top: 52.9vh;
+  }
+
+  @media (min-aspect-ratio: 308/180) {
+    top: 57vh;
+  }
+
+  @media (min-aspect-ratio: 308/170) {
+    top: 55vh;
   }
 `;
 
 const DecorativeElement = styled.h3`
-  font-size: 7vw; /* Adjust font size based on viewport width */
+  font-size: 480px;
   font-weight: 700;
   line-height: 0.79;
   margin: 0;
-  color: rgba(0,0,0,0.05);
+  color: rgba(0, 0, 0, 0.03);
   position: absolute;
-  left: 2vw; /* Adjust positioning based on viewport width */
-  top: 12vw; /* Align the top of the decorative element with the top of the title */
-  transform: rotate(90deg);
-  /* width: 10vw; */
-  height: 35vh; /* Adjust height based on viewport height */
-  
+  left: 6.5vw;
+  top: 24.1vh;
+  letter-spacing: -77px;
+  transform: rotate(90deg) translate(-485px, -360px);
+  /* height: 35vh; */
+
   & > span {
     position: absolute;
-    top: 0;
-    left: 0;
+    /* top: 0;
+    left: 0; */
+  }
+
+  & > span:nth-child(1) {
+    /* left: -10.6vh; */
   }
 
   & > span:nth-child(2) {
+    /* left: -10.6vh; */
+    transform: translateX(466px);
     color: black;
   }
 
-  @media (max-width: 3100px) {
-    font-size: 15.6vw;
-    left: 2vw;
-    top: -8vh;
-    letter-spacing: -2.5vw;
+  @media (max-width: 2800px) {
+    font-size: 400px;
+    left: 4.5vw;
+    letter-spacing: -57px;
+    transform: rotate(90deg) translate(-420px, -360px);
+
+    & > span:nth-child(1) {
+      /* left: -7.1vh; */
+    }
 
     & > span:nth-child(2) {
-      left: 20.9vh;
+      /* left: 13.6vh; */
+      transform: translateX(403px);
     }
+  }
+
+  @media (max-width: 2400px) {
+    font-size: 360px;
+    left: 3.5vw;
+    letter-spacing: -52px;
+    transform: rotate(90deg) translate(-375px, -360px);
+
+    & > span:nth-child(1) {
+      /* left: -4.7vh; */
+    }
+
+    & > span:nth-child(2) {
+      /* left: 13.8vh; */
+      transform: translateX(360px);
+    }
+  }
+
+  @media (min-aspect-ratio: 308/170) {
+    top: 20vh;
+  }
+
+  @media (max-width: 1920px) {
+    font-size: 300px;
+    left: 0.5vw;
+    letter-spacing: -52px;
+    transform: rotate(90deg) translate(-295px, -360px);
+
+    & > span:nth-child(1) {
+      /* left: -4.7vh; */
+    }
+
+    & > span:nth-child(2) {
+      /* left: 13.8vh; */
+      transform: translateX(282px);
+    }
+  }
+
+  @media (max-width: 1820px) {
+    left: 0.2vw;
+  }
+
+  @media (max-width: 1700px) {
+    left: -0.5vw;
+  }
+`;
+
+const ContactInfo = styled.div`
+  font-size: 0.9vw;
+  font-weight: 300;
+  line-height: 1;
+  color: #555;
+  position: absolute;
+  left: 6.5vw;
+  bottom: 4vh;
+  margin: 0;
+
+  & > span {
+    display: block;
+  }
+
+  @media (max-width: 2800px) {
+    left: 6.9vw;
+  }
+
+  @media (max-width: 2400px) {
+    left: 7.5vw;
+  }
+
+  @media (max-width: 1920px) {
+    font-size: 16px;
+  }
+`;
+
+const LegalInfo = styled.div`
+  font-size: 0.6vw;
+  font-weight: 300;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  left: calc(6.4vw + 10.4vw + 28vw);
+  bottom: 4vh;
+  margin: 0;
+  display: flex;
+
+  & > span {
+    display: block;
+  }
+
+  & > span.dot-spacer {
+    margin: 0 0.5vw;
+  }
+
+  @media (max-width: 1920px) {
+    font-size: 11px;
   }
 `;
 
@@ -105,23 +228,22 @@ const DebugBox = styled.div`
   position: absolute;
   width: 200px;
   height: 200px;
-  right: 50%;
-  background-color: #eeff0078; 
+  background-color: #eeff0078;
 `;
 
 const DebugBoxTwo = styled.div`
   position: absolute;
   height: 200px;
   top: 50%;
-  background-color: #6f00ff4b; 
+  background-color: #6f00ff4b;
 `;
 
 const DebugBoxThree = styled.div`
   position: absolute;
-  height: 53.4vh;
-  width: 200px;
+  height: 100vh;
+  width: 20px;
   top: 0;
-  left: 10vw;
+  left: 6.5vw;
   background-color: #00ffdd4a;
 `;
 
@@ -143,19 +265,66 @@ const IndexPage: React.FC<PageProps> = () => {
           <span>VALLE</span>
           <span>L</span>
         </DecorativeElement>
-        <DebugBox style={{top: 0, height: '495px', left: 0, width: '70vw'}} />
-        <DebugBox style={{top: '42vh', height: '237px'}} />
-        <DebugBox style={{top: '57.8vh', height: '848px'}} />
-        <DebugBoxTwo style={{left: '0', width: '6.4vw', top: '20vh'}} />
-        <DebugBoxTwo style={{left: '6.4vw', width: '10.4vw', top: '25vh'}} />
-        <DebugBoxTwo style={{left: 'calc(6.4vw + 10.4vw)', width: '28vw', top: '31vh'}} />
-        <DebugBoxTwo style={{left: 'calc(6.4vw + 10.4vw + 28vw)', width: '39.7vw', top: '36vh'}} />
-        <DebugBoxTwo style={{left: 'calc(6.4vw + 10.4vw + 28vw + 39.7vw)', width: '15.6vw', top: '41vh'}} />
-        <DebugBoxThree />
+        <ContactInfo>
+          <span>// inquiries</span>
+          <span>contact@vallesoftwarelabs.com</span>
+        </ContactInfo>
+        <LegalInfo>
+          <span>Valle Software Labs AS</span>
+          <span className="dot-spacer">•</span>
+          <span>Org. nr: 933 356 078</span>
+          <span className="dot-spacer">•</span>
+          <span>Fredensborgveien 87A, 8003 BODØ, NORWAY</span>
+        </LegalInfo>
+        {/* <DebugBox
+          style={{ top: 0, height: "24.5vh", width: "70vw", right: "55vw" }}
+        />
+        <DebugBox style={{ top: "24.5vh", height: "18.9vh", right: "45vw" }} />
+        <DebugBox
+          style={{
+            top: "calc(24.5vh + 18.9vh)",
+            height: "10.4vh",
+            right: "50vw",
+          }}
+        />
+        <DebugBox
+          style={{
+            top: "calc(24.5vh + 18.9vh + 10.4vh)",
+            height: "4.5vh",
+            right: "45vw",
+          }}
+        />
+        <DebugBox
+          style={{
+            top: "calc(24.5vh + 18.9vh + 10.4vh + 4.5vh)",
+            height: "41.6vh",
+            right: "50vw",
+          }}
+        />
+        <DebugBoxTwo style={{ left: "0", width: "6.4vw", top: "20vh" }} />
+        <DebugBoxTwo style={{ left: "6.4vw", width: "10.4vw", top: "25vh" }} />
+        <DebugBoxTwo
+          style={{ left: "calc(6.4vw + 10.4vw)", width: "28vw", top: "31vh" }}
+        />
+        <DebugBoxTwo
+          style={{
+            left: "calc(6.4vw + 10.4vw + 28vw)",
+            width: "39.7vw",
+            top: "36vh",
+          }}
+        />
+        <DebugBoxTwo
+          style={{
+            left: "calc(6.4vw + 10.4vw + 28vw + 39.7vw)",
+            width: "15.6vw",
+            top: "41vh",
+          }}
+        />
+        <DebugBoxThree /> */}
       </MainContent>
     </ThemeProvider>
   );
-}
+};
 
 export default IndexPage;
 
@@ -165,7 +334,7 @@ export const Head: HeadFC = () => (
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap"
       rel="stylesheet"
     />
   </>
