@@ -2,6 +2,15 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   html, body, #___gatsby, #root, > div {
     height: 100%;
   }
@@ -12,6 +21,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: ${(props) => props.theme.fonts.main};
     background-color: ${(props) => props.theme.colors.background};
     color: ${(props) => props.theme.colors.primary};
+    animation: fadeIn 1s ease-in-out;
   }
 
   *, *::before, *::after {
