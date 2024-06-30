@@ -171,6 +171,30 @@ const DecorativeElement = styled.h3`
   @media (max-width: 1700px) {
     left: -0.5vw;
   }
+
+  @media (max-width: 1550px) {
+    left: -1vw;
+  }
+
+  @media (max-width: 1440px) {
+    left: -2.2vw;
+  }
+
+  @media (max-width: 1300px) {
+    left: -2.9vw;
+  }
+
+  @media (max-width: 1200px) {
+    left: -4vw;
+  }
+
+  @media (max-width: 1100px) {
+    left: -5vw;
+  }
+
+  @media (max-width: 1100px) {
+    left: -6vw;
+  }
 `;
 
 const ContactInfo = styled.div`
@@ -319,8 +343,8 @@ const IndexPage: React.FC<PageProps> = () => {
             width: "15.6vw",
             top: "41vh",
           }}
-        />
-        <DebugBoxThree /> */}
+        /> */}
+        <DebugBoxThree />
       </MainContent>
     </ThemeProvider>
   );
