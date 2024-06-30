@@ -2,6 +2,10 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
+  html, body, #___gatsby, #root, > div {
+    height: 100%;
+  }
+
   body {
     margin: 0;
     padding: 0;

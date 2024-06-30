@@ -315,9 +315,8 @@ const MobileContent = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  margin: 20px;
+  padding: 20px;
   height: 100vh;
-  padding: 0;
   position: relative;
 `;
 
