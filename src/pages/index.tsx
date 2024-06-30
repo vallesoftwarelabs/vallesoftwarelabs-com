@@ -421,7 +421,6 @@ const IndexPage: React.FC<PageProps> = () => {
             <span className="dot-spacer">•</span>
             <span>Fredensborgveien 87A, 8003 BODØ, NORWAY</span>
           </LegalInfo>
-          <DebugBoxThree />
         </MainContent>
       )}
     </ThemeProvider>
