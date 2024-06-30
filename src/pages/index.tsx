@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../styles/globalStyles";
 import { theme } from "../styles/theme";
 import styled from "styled-components";
+import useWindowSize from "../utils/misc";
 
 const MainContent = styled.main`
   display: flex;
@@ -309,36 +310,140 @@ const DebugBoxThree = styled.div`
   background-color: #00ffdd4a;
 `;
 
+const MobileContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 20px;
+  height: 100vh;
+  padding: 0;
+  position: relative;
+`;
+
+const MobileTitle = styled.h1`
+  font-size: 16vw;
+  margin: 0;
+  margin-top: 4vh;
+  letter-spacing: -2px;
+  line-height: 0.79;
+  font-weight: 900;
+
+  & > span {
+    display: block;
+  }
+
+  & > span:nth-child(1) {
+  }
+
+  & > span:nth-child(2) {
+  }
+
+  & > span:nth-child(3) {
+    text-align: right;
+  }
+`;
+
+const MobileSubtitle = styled.h2`
+  font-size: 13vw;
+  margin: 0;
+  margin-top: 10vh;
+  letter-spacing: -2px;
+  line-height: 1;
+  font-weight: 100;
+
+  & > span {
+    display: block;
+  }
+`;
+
+const MobileContactInfo = styled.div`
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1;
+  color: #555;
+  position: absolute;
+  bottom: 4vh;
+  margin: 0;
+
+  & > span {
+    display: block;
+  }
+`;
+
 const IndexPage: React.FC<PageProps> = () => {
+  const size = useWindowSize();
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <MainContent>
-        <Title>
-          <span>VALLE</span>
-          <span>SOFTWARE</span>
-          <span>LABS</span>
-        </Title>
-        <Subtitle>
-          <span>a future heavyweight</span>
-          <span>in digital products</span>
-        </Subtitle>
-        <DecorativeElement>
-          <span>VALLE</span>
-          <span>L</span>
-        </DecorativeElement>
-        <ContactInfo>
-          <span>// inquiries</span>
-          <span>contact@vallesoftwarelabs.com</span>
-        </ContactInfo>
-        <LegalInfo>
-          <span>Valle Software Labs AS</span>
-          <span className="dot-spacer">•</span>
-          <span>Org. nr: 933 356 078</span>
-          <span className="dot-spacer">•</span>
-          <span>Fredensborgveien 87A, 8003 BODØ, NORWAY</span>
-        </LegalInfo>
-        {/* <DebugBox
+      {screen.width <= 768 ? (
+        <MobileContent>
+          <MobileTitle>
+            <span>VALLE</span>
+            <span>SOFTWARE</span>
+            <span>LABS</span>
+          </MobileTitle>
+          <MobileSubtitle>
+            <span>a future</span>
+            <span>heavyweight</span>
+            <span>in digital</span>
+            <span>products</span>
+          </MobileSubtitle>
+          <MobileContactInfo>
+            <span>// inquiries</span>
+            <span>contact@vallesoftwarelabs.com</span>
+          </MobileContactInfo>
+        </MobileContent>
+      ) : (
+        <MainContent>
+          <Title>
+            <span>VALLE</span>
+            <span>SOFTWARE</span>
+            <span>LABS</span>
+          </Title>
+          <Subtitle>
+            <span>a future heavyweight</span>
+            <span>in digital products</span>
+          </Subtitle>
+          <DecorativeElement>
+            <span>VALLE</span>
+            <span>L</span>
+          </DecorativeElement>
+          <ContactInfo>
+            <span>// inquiries</span>
+            <span>contact@vallesoftwarelabs.com</span>
+          </ContactInfo>
+          <LegalInfo>
+            <span>Valle Software Labs AS</span>
+            <span className="dot-spacer">•</span>
+            <span>Org. nr: 933 356 078</span>
+            <span className="dot-spacer">•</span>
+            <span>Fredensborgveien 87A, 8003 BODØ, NORWAY</span>
+          </LegalInfo>
+          <DebugBoxThree />
+        </MainContent>
+      )}
+    </ThemeProvider>
+  );
+};
+
+export default IndexPage;
+
+export const Head: HeadFC = () => (
+  <>
+    <title>Home Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </>
+);
+
+{
+  /* <DebugBox
           style={{ top: 0, height: "24.5vh", width: "70vw", right: "55vw" }}
         />
         <DebugBox style={{ top: "24.5vh", height: "18.9vh", right: "45vw" }} />
@@ -381,23 +486,5 @@ const IndexPage: React.FC<PageProps> = () => {
             width: "15.6vw",
             top: "41vh",
           }}
-        /> */}
-        <DebugBoxThree />
-      </MainContent>
-    </ThemeProvider>
-  );
-};
-
-export default IndexPage;
-
-export const Head: HeadFC = () => (
-  <>
-    <title>Home Page</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700;900&display=swap"
-      rel="stylesheet"
-    />
-  </>
-);
+        /> */
+}
