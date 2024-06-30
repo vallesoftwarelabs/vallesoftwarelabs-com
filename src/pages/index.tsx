@@ -374,60 +374,72 @@ const MobileContactInfo = styled.div`
 const IndexPage: React.FC<PageProps> = () => {
   const size = useWindowSize();
 
+  if (!size) {
+    return <LargeScreenContent />;
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      {screen.width <= 768 ? (
-        <MobileContent>
-          <MobileTitle>
-            <span>VALLE</span>
-            <span>SOFTWARE</span>
-            <span>LABS</span>
-          </MobileTitle>
-          <MobileSubtitle>
-            <span>a future</span>
-            <span>heavyweight</span>
-            <span>in digital</span>
-            <span>products</span>
-          </MobileSubtitle>
-          <MobileContactInfo>
-            <span>// inquiries</span>
-            <span>contact@vallesoftwarelabs.com</span>
-          </MobileContactInfo>
-        </MobileContent>
+      {(size?.width ?? 1000) <= 768 ? (
+        <MobileScreenContent />
       ) : (
-        <MainContent>
-          <Title>
-            <span>VALLE</span>
-            <span>SOFTWARE</span>
-            <span>LABS</span>
-          </Title>
-          <Subtitle>
-            <span>a future heavyweight</span>
-            <span>in digital products</span>
-          </Subtitle>
-          <DecorativeElement>
-            <span>VALLE</span>
-            <span>L</span>
-          </DecorativeElement>
-          <ContactInfo>
-            <span>// inquiries</span>
-            <span>contact@vallesoftwarelabs.com</span>
-          </ContactInfo>
-          <LegalInfo>
-            <span>Valle Software Labs AS</span>
-            <span className="dot-spacer">•</span>
-            <span>Org. nr: 933 356 078</span>
-            <span className="dot-spacer">•</span>
-            <span>Fredensborgveien 87A, 8003 BODØ, NORWAY</span>
-          </LegalInfo>
-        </MainContent>
+        <LargeScreenContent />
       )}
     </ThemeProvider>
   );
 };
 
 export default IndexPage;
+
+const MobileScreenContent: React.FC = () => (
+  <MobileContent>
+    <MobileTitle>
+      <span>VALLE</span>
+      <span>SOFTWARE</span>
+      <span>LABS</span>
+    </MobileTitle>
+    <MobileSubtitle>
+      <span>a future</span>
+      <span>heavyweight</span>
+      <span>in digital</span>
+      <span>products</span>
+    </MobileSubtitle>
+    <MobileContactInfo>
+      <span>// inquiries</span>
+      <span>contact@vallesoftwarelabs.com</span>
+    </MobileContactInfo>
+  </MobileContent>
+);
+
+const LargeScreenContent: React.FC = () => (
+  <MainContent>
+    <Title>
+      <span>VALLE</span>
+      <span>SOFTWARE</span>
+      <span>LABS</span>
+    </Title>
+    <Subtitle>
+      <span>a future heavyweight</span>
+      <span>in digital products</span>
+    </Subtitle>
+    <DecorativeElement>
+      <span>VALLE</span>
+      <span>L</span>
+    </DecorativeElement>
+    <ContactInfo>
+      <span>// inquiries</span>
+      <span>contact@vallesoftwarelabs.com</span>
+    </ContactInfo>
+    <LegalInfo>
+      <span>Valle Software Labs AS</span>
+      <span className="dot-spacer">•</span>
+      <span>Org. nr: 933 356 078</span>
+      <span className="dot-spacer">•</span>
+      <span>Fredensborgveien 87A, 8003 BODØ, NORWAY</span>
+    </LegalInfo>
+  </MainContent>
+);
 
 export const Head: HeadFC = () => (
   <>
