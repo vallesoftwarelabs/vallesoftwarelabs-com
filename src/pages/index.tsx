@@ -362,7 +362,7 @@ const MobileContactInfo = styled.div`
   line-height: 1;
   color: #555;
   position: absolute;
-  bottom: 4vh;
+  bottom: 4%;
   margin: 0;
 
   & > span {
