@@ -280,6 +280,10 @@ const LegalInfo = styled.div`
   @media (max-width: 1100px) and (min-aspect-ratio: 10/14) {
     left: 39.5vw;
   }
+
+  @media (max-width: 1100px) and (min-aspect-ratio: 10/8) {
+    left: 36vw;
+  }
 `;
 
 const DebugBox = styled.div`
