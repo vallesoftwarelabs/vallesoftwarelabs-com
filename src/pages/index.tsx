@@ -51,6 +51,17 @@ const Title = styled.h1`
   @media (min-aspect-ratio: 308/120) {
     top: 16vh;
   }
+
+  @media (max-width: 1100px) and (min-aspect-ratio: 10/14) {
+    font-weight: 900;
+    font-size: 8.8vw;
+  }
+
+  @media (max-width: 1100px) and (min-aspect-ratio: 10/8) {
+    font-weight: 900;
+    font-size: 10vw;
+    letter-spacing: -3px;
+  }
 `;
 
 const Subtitle = styled.h2`
@@ -80,6 +91,25 @@ const Subtitle = styled.h2`
 
   @media (min-aspect-ratio: 308/170) {
     top: 55vh;
+  }
+
+  @media (max-width: 1100px) and (min-aspect-ratio: 10/14) {
+    font-size: 2.8vw;
+    right: 36.5vw;
+    top: 45vh;
+  }
+
+  @media (max-width: 1100px) and (min-aspect-ratio: 10/12) {
+    top: 50vh;
+  }
+
+  @media (max-width: 1100px) and (min-aspect-ratio: 10/10) {
+    top: 54vh;
+  }
+
+  @media (max-width: 1100px) and (min-aspect-ratio: 10/8) {
+    right: 42.5vw;
+    letter-spacing: -2px;
   }
 `;
 
@@ -230,7 +260,7 @@ const LegalInfo = styled.div`
   line-height: 1;
   color: rgba(0, 0, 0, 0.3);
   position: absolute;
-  left: calc(6.4vw + 10.4vw + 28vw);
+  left: 44.8vw;
   bottom: 4vh;
   margin: 0;
   display: flex;
@@ -245,6 +275,10 @@ const LegalInfo = styled.div`
 
   @media (max-width: 1920px) {
     font-size: 11px;
+  }
+
+  @media (max-width: 1100px) and (min-aspect-ratio: 10/14) {
+    left: 39.5vw;
   }
 `;
 
@@ -358,7 +392,7 @@ export const Head: HeadFC = () => (
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700;900&display=swap"
       rel="stylesheet"
     />
   </>
