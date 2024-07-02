@@ -15,6 +15,8 @@ const MainContent = styled.main`
   padding: 0;
   text-align: left;
   position: relative;
+  margin: 0 auto;
+  max-width: 3800px;
 `;
 
 const Title = styled.h1`
@@ -373,18 +375,34 @@ const MobileContactInfo = styled.div`
 const IndexPage: React.FC<PageProps> = () => {
   const size = useWindowSize();
 
-  if (!size) {
+  if (!size || !size.width || !size.height) {
     return <LargeScreenContent />;
+  }
+
+  const aspectRatio = size.width / size.height;
+
+  if (size.width <= 768) {
+    return (
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <MobileScreenContent />
+      </ThemeProvider>
+    );
+  }
+
+  if (size.width > 768 && aspectRatio < 2.71) {
+    return (
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <LargeScreenContent />
+      </ThemeProvider>
+    );
   }
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      {(size?.width ?? 1000) <= 768 ? (
-        <MobileScreenContent />
-      ) : (
-        <LargeScreenContent />
-      )}
+      <ExtraLargeScreenContent />
     </ThemeProvider>
   );
 };
@@ -437,6 +455,79 @@ const LargeScreenContent: React.FC = () => (
       <span className="dot-spacer">•</span>
       <span>Fredensborgveien 87A, 8003 BODØ, NORWAY</span>
     </LegalInfo>
+  </MainContent>
+);
+
+// ExtraLargeTitle, based on Title
+const ExtraLargeTitle = styled(Title)`
+  font-size: 302px;
+  right: 15%;
+  top: 16%;
+  font-weight: 700;
+`;
+
+const ExtraLargeSubtitle = styled(Subtitle)`
+  font-size: 70px;
+  right: 40%;
+  top: 55%;
+  line-height: 69.7px;
+  letter-spacing: -2.34px;
+  font-weight: 300;
+`;
+
+const ExtraLargeDecorativeElement = styled(DecorativeElement)`
+  font-size: 480px;
+  left: 6.5%;
+  top: 20%;
+  letter-spacing: -77px;
+  transform: rotate(90deg) translate(-485px, -360px);
+`;
+
+const ExtraLargeContactInfo = styled(ContactInfo)`
+  font-size: 35px;
+  left: 6.5%;
+  bottom: 4%;
+`;
+
+const ExtraLargeLegalInfo = styled(LegalInfo)`
+  font-size: 22px;
+  left: 44.8%;
+  bottom: 4%;
+  display: flex;
+  & > span {
+    display: block;
+  }
+  & > span.dot-spacer {
+    margin: 0 18.5px;
+  }
+  `;
+
+const ExtraLargeScreenContent: React.FC = () => (
+  <MainContent>
+    <ExtraLargeTitle>
+      <span>VALLE</span>
+      <span>SOFTWARE</span>
+      <span>LABS</span>
+    </ExtraLargeTitle>
+    <ExtraLargeSubtitle>
+      <span>a future heavyweight</span>
+      <span>in digital products</span>
+    </ExtraLargeSubtitle>
+    <ExtraLargeDecorativeElement>
+      <span>VALLE</span>
+      <span>L</span>
+    </ExtraLargeDecorativeElement>
+    <ExtraLargeContactInfo>
+      <span>// inquiries</span>
+      <span>contact@vallesoftwarelabs.com</span>
+    </ExtraLargeContactInfo>
+    <ExtraLargeLegalInfo>
+      <span>Valle Software Labs AS</span>
+      <span className="dot-spacer">•</span>
+      <span>Org. nr: 933 356 078</span>
+      <span className="dot-spacer">•</span>
+      <span>Fredensborgveien 87A, 8003 BODØ, NORWAY</span>
+    </ExtraLargeLegalInfo>
   </MainContent>
 );
 
