@@ -5,6 +5,8 @@ import { GlobalStyles } from "../styles/globalStyles";
 import { theme } from "../styles/theme";
 import styled from "styled-components";
 import useWindowSize from "../utils/misc";
+import { useEffect, useState } from "react";
+import { Overlay } from "../components/Overlay";
 
 const MainContent = styled.main`
   display: flex;
@@ -374,9 +376,24 @@ const MobileContactInfo = styled.div`
 
 const IndexPage: React.FC<PageProps> = () => {
   const size = useWindowSize();
+  const [showOverlay, setShowOverlay] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowOverlay(false), 2400);
+    return () => clearTimeout(timer);
+  }, []);
+
+
 
   if (!size || !size.width || !size.height) {
-    return <LargeScreenContent />;
+    return (
+
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        {showOverlay && <Overlay />}
+        <LargeScreenContent />
+      </ThemeProvider>
+    )
   }
 
   const aspectRatio = size.width / size.height;
@@ -385,6 +402,7 @@ const IndexPage: React.FC<PageProps> = () => {
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyles />
+        {showOverlay && <Overlay />}
         <MobileScreenContent />
       </ThemeProvider>
     );
@@ -394,6 +412,7 @@ const IndexPage: React.FC<PageProps> = () => {
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyles />
+        {showOverlay && <Overlay />}
         <LargeScreenContent />
       </ThemeProvider>
     );
@@ -402,6 +421,7 @@ const IndexPage: React.FC<PageProps> = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
+      {showOverlay && <Overlay />}
       <ExtraLargeScreenContent />
     </ThemeProvider>
   );
