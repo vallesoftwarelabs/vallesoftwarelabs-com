@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.vallesoftwarelabs.household",
+            "sha256_cert_fingerprints": [
+                "52:67:31:ED:EE:81:A3:16:6D:D4:29:F1:A9:CA:09:4F:0B:6D:C2:16:9E:FA:C3:7E:FD:E6:30:0B:D5:17:83:B1"
+            ]
+        }
+    }
+]
