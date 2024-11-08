@@ -1,0 +1,13 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "S54VYAA2T6.com.vallesoftwarelabs.household",
+                "paths": [
+                    "/household/*"
+                ]
+            }
+        ]
+    }
+}
